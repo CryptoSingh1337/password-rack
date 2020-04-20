@@ -1,5 +1,7 @@
 package passwordrack.GUI;
 
+import passwordrack.Login.LoginValidation;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -7,8 +9,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Toolkit;
@@ -81,6 +85,20 @@ public class Login {
 		frame2.getContentPane().add(passwordField);
 		
 		JButton btnNewButton= new JButton("Submit");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String pass,username1;
+				int i;
+				username1 = textField.getText().trim();
+				pass = passwordField.getText();
+				LoginValidation obj = new LoginValidation();
+				i = obj.checkValidation(username1,pass);
+				if(i == 1)
+					JOptionPane.showMessageDialog(frame2, "Login Successful!!");
+				else
+					JOptionPane.showMessageDialog(frame2, "Login UnSuccessful!!");
+			}
+		});
 		btnNewButton.setBounds(255, 277, 104, 37);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		frame2.getContentPane().add(btnNewButton);

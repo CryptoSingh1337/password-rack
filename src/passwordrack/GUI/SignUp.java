@@ -26,7 +26,7 @@ import passwordrack.GUI.SignUp;
 
 public class SignUp {
 
-	protected JFrame frame1;		// make protected to access this JFrame object in other class and to make it visibl_1;
+	protected JFrame frame1;		// make protected to access this JFrame object in other class and to make it visible;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_4;
@@ -135,17 +135,23 @@ public class SignUp {
 			public void actionPerformed(ActionEvent e) {
 				String name,username,email,mobileno;
 				String password;
-				name = textField_1.getText();
-				username = textField_2.getText();
+				name = textField_1.getText().trim();
+				username = textField_2.getText().trim();
 				password = passwordField_3.getText();
-				email = textField_4.getText();
-				mobileno = textField_5.getText();
+				email = textField_4.getText().trim();
+				mobileno = textField_5.getText().trim();
 				if(name.isEmpty() || username.isEmpty() || email.isEmpty() || mobileno.isEmpty() || password.isEmpty())
+				{
 					JOptionPane.showMessageDialog(frame1,"Invalid Data!!");
+				}
+				else if(mobileno.length()>10)
+				{
+						JOptionPane.showMessageDialog(frame1,"Mobile Number exceeds 10 digits!!");
+				}
 				else
 				{
-				SignUpDataSaving obj = new SignUpDataSaving();
-				obj.setDataSubmit(name,username,password,email,mobileno);
+					SignUpDataSaving obj = new SignUpDataSaving();
+					obj.setDataSubmit(name,username,password,email,mobileno);
 				}
 			}
 		});
