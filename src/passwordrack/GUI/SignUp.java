@@ -34,21 +34,6 @@ public class SignUp {
 	private JPasswordField passwordField_3;
 	
 	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SignUp window = new SignUp();
-					window.frame1.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-	/**
 	 * Create the application.
 	 */
 	public SignUp() {
@@ -76,61 +61,61 @@ public class SignUp {
 		JLabel lblNewLabel_1 = new JLabel("Name");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblNewLabel_1.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblNewLabel_1.setBounds(258, 130, 110, 28);
+		lblNewLabel_1.setBounds(258, 150, 110, 28);
 		frame1.getContentPane().add(lblNewLabel_1);
 		
 		textField_1 = new JTextField();
 		textField_1.setBorder(new LineBorder(new Color(171, 173, 179)));
-		textField_1.setBounds(391, 130, 181, 20);
-		frame1.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
+		textField_1.setBounds(391, 150, 181, 22);
+		frame1.getContentPane().add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(391, 175, 181, 22);
+		textField_2.setBounds(391, 195, 181, 22);
 		frame1.getContentPane().add(textField_2);
 		
 		JLabel lblUsername = new JLabel("Username");
 		lblUsername.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblUsername.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblUsername.setBounds(258, 175, 110, 28);
+		lblUsername.setBounds(258, 195, 110, 28);
 		frame1.getContentPane().add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblPassword.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblPassword.setBounds(258, 225, 110, 28);
+		lblPassword.setBounds(258, 245, 110, 28);
 		frame1.getContentPane().add(lblPassword);
 		
 		JLabel lblEmail = new JLabel("E-mail");
 		lblEmail.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblEmail.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblEmail.setBounds(258, 273, 110, 28);
+		lblEmail.setBounds(258, 293, 110, 28);
 		frame1.getContentPane().add(lblEmail);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(391, 273, 181, 22);
+		textField_4.setBounds(391, 293, 181, 22);
 		frame1.getContentPane().add(textField_4);
 		
 		JLabel lblMobileNo = new JLabel("Mobile No.");
 		lblMobileNo.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblMobileNo.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblMobileNo.setBounds(228, 323, 140, 28);
+		lblMobileNo.setBounds(228, 343, 140, 28);
 		frame1.getContentPane().add(lblMobileNo);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
-		textField_5.setBounds(391, 323, 181, 22);
+		textField_5.setBounds(391, 343, 181, 22);
 		frame1.getContentPane().add(textField_5);
 		
 		passwordField_3 = new JPasswordField();
-		passwordField_3.setBounds(391, 225, 181, 22);
+		passwordField_3.setBounds(391, 245, 181, 22);
 		frame1.getContentPane().add(passwordField_3);
 		
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.setBackground(new Color(192, 192, 192));
-		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name,username,email,mobileno;
@@ -142,11 +127,11 @@ public class SignUp {
 				mobileno = textField_5.getText().trim();
 				if(name.isEmpty() || username.isEmpty() || email.isEmpty() || mobileno.isEmpty() || password.isEmpty())
 				{
-					JOptionPane.showMessageDialog(frame1,"Invalid Data!!");
+					JOptionPane.showMessageDialog(frame1,"Invalid Data  !!");
 				}
 				else if(mobileno.length()>10)
 				{
-						JOptionPane.showMessageDialog(frame1,"Mobile Number exceeds 10 digits!!");
+						JOptionPane.showMessageDialog(frame1,"Mobile Number exceeds 10 digits  !!");
 				}
 				else
 				{
@@ -155,13 +140,13 @@ public class SignUp {
 				}
 			}
 		});
-		btnNewButton.setFont(new Font("Segoe UI", Font.PLAIN, 28));
-		btnNewButton.setBounds(441, 388, 120, 40);
+		btnNewButton.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+		btnNewButton.setBounds(289, 422, 110, 30);
 		frame1.getContentPane().add(btnNewButton);
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(new Color(192, 192, 192));
-		btnBack.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		btnBack.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -178,8 +163,8 @@ public class SignUp {
 				});
 			}
 		});
-		btnBack.setFont(new Font("Segoe UI", Font.PLAIN, 28));
-		btnBack.setBounds(258, 388, 120, 40);
+		btnBack.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+		btnBack.setBounds(452, 422, 110, 30);
 		frame1.getContentPane().add(btnBack);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
@@ -192,13 +177,20 @@ public class SignUp {
 		lblNewLabel_3.setBackground(new Color(245, 245, 245));
 		lblNewLabel_3.setFont(new Font("Segoe UI Semilight", Font.BOLD, 36));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(228, 23, 352, 70);
+		lblNewLabel_3.setBounds(228, 32, 352, 70);
 		frame1.getContentPane().add(lblNewLabel_3);
 		
 		JPanel panel = new JPanel();
+		panel.setBorder(null);
 		panel.setBackground(new Color(105, 105, 105));
-		panel.setBounds(0, 0, 214, 472);
+		panel.setBounds(0, 0, 214, 410);
 		frame1.getContentPane().add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(null);
+		panel_1.setBackground(new Color(230, 230, 250));
+		panel_1.setBounds(0, 409, 596, 63);
+		frame1.getContentPane().add(panel_1);
 		
 		frame1.setLocationRelativeTo(null);   //To display JFrame at the center of screen
 	}

@@ -114,7 +114,7 @@ public class Open {
 				}
 				
 				catch(Exception f) {
-					JOptionPane.showMessageDialog(null, "Error in Opening File!!");
+					JOptionPane.showMessageDialog(null, "Error in Opening File  !!");
 				}	
 			}
 		});
@@ -130,11 +130,6 @@ public class Open {
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setForeground(Color.WHITE);
 		label_1.setFont(new Font("Impact", Font.PLAIN, 70));
-		
-		JPanel right = new JPanel();
-		right.setBackground(new Color(255, 255, 224));
-		right.setBounds(343, 0, 253, 472);
-		frame.getContentPane().add(right);
 		
 		JLabel lblNewLabel = new JLabel("Password");
 		lblNewLabel.setForeground(new Color(255, 255, 224));
@@ -164,10 +159,21 @@ public class Open {
 		lblSaranshKumar.setBounds(38, 305, 258, 92);
 		frame.getContentPane().add(lblSaranshKumar);
 		
+		JLabel lblNewLabel_2 = new JLabel("v1.0");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(549, 10, 37, 23);
+		frame.getContentPane().add(lblNewLabel_2);
+		
 		JPanel left = new JPanel();
 		left.setBackground(new Color(0, 0, 0));
 		left.setBounds(0, 0, 343, 472);
 		frame.getContentPane().add(left);
+		
+		JPanel right = new JPanel();
+		right.setBackground(new Color(255, 255, 224));
+		right.setBounds(343, 0, 253, 472);
+		frame.getContentPane().add(right);
 		
 		frame.setLocationRelativeTo(null);   //To display JFrame at the center of the screen
 		
