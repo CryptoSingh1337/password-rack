@@ -17,7 +17,7 @@ public class LoginValidation {
 			
 			Class.forName("orcale.jdbc.driver.OracleDriver");
 			Connection connect = DriverManager.getConnection(url, username, password);
-			
+			 
 		}
 		
 		catch(Exception e){
