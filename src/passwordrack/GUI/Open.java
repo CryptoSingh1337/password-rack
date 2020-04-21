@@ -72,6 +72,7 @@ public class Open {
 							SignUp window1 = new SignUp();
 							window1.frame1.setVisible(true);
 							frame.setVisible(false);
+							frame.dispose();
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
@@ -94,6 +95,7 @@ public class Open {
 							Login window2 = new Login();
 							window2.frame2.setVisible(true);
 							frame.setVisible(false);
+							frame.dispose();
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
