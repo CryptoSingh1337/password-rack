@@ -30,10 +30,10 @@ public class SignUpDataSaving {
 			p.execute();
 			
 			JOptionPane.showMessageDialog(null, "Saved Data Successfully!!");
-	}
-	
-	catch(Exception e) {
-		e.printStackTrace();
+			}
+		catch(Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Username Already Exists !!");
 		}
 	}
 }

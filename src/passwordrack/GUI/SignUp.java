@@ -15,6 +15,8 @@ import javax.swing.JTextField;
 //import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
@@ -26,12 +28,12 @@ import passwordrack.GUI.SignUp;
 
 public class SignUp {
 
-	protected JFrame frame1;		// make protected to access this JFrame object in other class and to make it visible;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JPasswordField passwordField_3;
+	protected JFrame signupFrame;								// make protected to access this JFrame object in other class
+	private JTextField nameTxtField;							//and to make it visible
+	private JTextField usernameTxtField;
+	private JPasswordField passwordField;
+	private JTextField emailTxtField;
+	private JTextField mobilenoTxtField;
 	
 	/**
 	 * Create the application.
@@ -39,79 +41,130 @@ public class SignUp {
 	public SignUp() {
 		initialize1();
 	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize1() {
-		frame1 = new JFrame("Password Rack");
-		frame1.setIconImage(Toolkit.getDefaultToolkit().getImage(SignUp.class.getResource("/passwordrack/Images/Logo.jpg")));
-		frame1.getContentPane().setBackground(new Color(255, 255, 255));
-		frame1.setSize(600,500);
-		frame1.setResizable(false);	
-		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame1.getContentPane().setLayout(null);
+		signupFrame = new JFrame("Password Rack");
+		signupFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(SignUp.class.getResource("/passwordrack/Images/Logo.jpg")));	//Main Icon
+		signupFrame.getContentPane().setBackground(new Color(255, 255, 255));
+		signupFrame.setSize(600,500);
+		signupFrame.setResizable(false);
+		signupFrame.getContentPane().setLayout(null);
+		signupFrame.setLocationRelativeTo(null);   				//To display JFrame at the center of the screen
+		signupFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblNewLabel = new JLabel("SignUp");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("SansSerif", Font.BOLD, 45));
-		lblNewLabel.setBounds(27, 45, 160, 76);
-		frame1.getContentPane().add(lblNewLabel);
+		JLabel signupLabel = new JLabel("SignUp");		
+		signupLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		signupLabel.setFont(new Font("SansSerif", Font.BOLD, 45));
+		signupLabel.setBounds(27, 45, 160, 76);
+		signupFrame.getContentPane().add(signupLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Name");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_1.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblNewLabel_1.setBounds(258, 150, 110, 28);
-		frame1.getContentPane().add(lblNewLabel_1);
+		JLabel signupIcon = new JLabel("");						//SignUp Icon
+		signupIcon.setIcon(new ImageIcon(SignUp.class.getResource("/passwordrack/Images/Registered User.png")));
+		signupIcon.setBounds(27, 191, 160, 160);
+		signupFrame.getContentPane().add(signupIcon);
 		
-		textField_1 = new JTextField();
-		textField_1.setBorder(new LineBorder(new Color(171, 173, 179)));
-		textField_1.setColumns(10);
-		textField_1.setBounds(391, 150, 181, 22);
-		frame1.getContentPane().add(textField_1);
+		JLabel createAccLabel = new JLabel("Create Your Account");
+		createAccLabel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		createAccLabel.setBackground(new Color(245, 245, 245));
+		createAccLabel.setFont(new Font("Segoe UI Semilight", Font.BOLD, 36));
+		createAccLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		createAccLabel.setBounds(228, 10, 356, 70);
+		signupFrame.getContentPane().add(createAccLabel);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(391, 195, 181, 22);
-		frame1.getContentPane().add(textField_2);
+		JLabel nameLabel = new JLabel("Name");
+		nameLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		nameLabel.setFont(new Font("Consolas", Font.PLAIN, 24));
+		nameLabel.setBounds(258, 100, 110, 28);
+		signupFrame.getContentPane().add(nameLabel);
 		
-		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblUsername.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblUsername.setBounds(258, 195, 110, 28);
-		frame1.getContentPane().add(lblUsername);
+		JLabel usernameLabel = new JLabel("Username");
+		usernameLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		usernameLabel.setFont(new Font("Consolas", Font.PLAIN, 24));
+		usernameLabel.setBounds(258, 145, 110, 28);
+		signupFrame.getContentPane().add(usernameLabel);
 		
-		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblPassword.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblPassword.setBounds(258, 245, 110, 28);
-		frame1.getContentPane().add(lblPassword);
+		JLabel passwordLabel = new JLabel("Password");
+		passwordLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		passwordLabel.setFont(new Font("Consolas", Font.PLAIN, 24));
+		passwordLabel.setBounds(258, 195, 110, 28);
+		signupFrame.getContentPane().add(passwordLabel);
 		
-		JLabel lblEmail = new JLabel("E-mail");
-		lblEmail.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblEmail.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblEmail.setBounds(258, 293, 110, 28);
-		frame1.getContentPane().add(lblEmail);
+		JLabel emailLabel = new JLabel("E-mail");
+		emailLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		emailLabel.setFont(new Font("Consolas", Font.PLAIN, 24));
+		emailLabel.setBounds(258, 243, 110, 28);
+		signupFrame.getContentPane().add(emailLabel);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(391, 293, 181, 22);
-		frame1.getContentPane().add(textField_4);
+		JLabel mobilenoLabel = new JLabel("Mobile No.");
+		mobilenoLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		mobilenoLabel.setFont(new Font("Consolas", Font.PLAIN, 24));
+		mobilenoLabel.setBounds(228, 293, 140, 28);
+		signupFrame.getContentPane().add(mobilenoLabel);
 		
-		JLabel lblMobileNo = new JLabel("Mobile No.");
-		lblMobileNo.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblMobileNo.setFont(new Font("Consolas", Font.PLAIN, 24));
-		lblMobileNo.setBounds(228, 343, 140, 28);
-		frame1.getContentPane().add(lblMobileNo);
+		nameTxtField = new JTextField();
+		nameTxtField.addKeyListener(new KeyAdapter() {
+			@Override											//This method is used to move pointer
+			public void keyPressed(KeyEvent e) {				//to next TextField when the user press
+				if(e.getKeyCode()==KeyEvent.VK_ENTER)			//'ENTER' Key
+					usernameTxtField.requestFocus();
+				}
+		});
+		nameTxtField.setColumns(10);
+		nameTxtField.setBounds(391, 100, 181, 22);
+		signupFrame.getContentPane().add(nameTxtField);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(391, 343, 181, 22);
-		frame1.getContentPane().add(textField_5);
+		usernameTxtField = new JTextField();
+		usernameTxtField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {				//This method is used to move pointer
+				if(e.getKeyCode()==KeyEvent.VK_ENTER)			//to next TextField when the user press
+					passwordField.requestFocus();				//'ENTER' Key
+				}
+		});
+		usernameTxtField.setColumns(10);
+		usernameTxtField.setBounds(391, 145, 181, 22);
+		signupFrame.getContentPane().add(usernameTxtField);
 		
-		passwordField_3 = new JPasswordField();
-		passwordField_3.setBounds(391, 245, 181, 22);
-		frame1.getContentPane().add(passwordField_3);
+		passwordField = new JPasswordField();
+		passwordField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {				//This method is used to move pointer
+				if(e.getKeyCode()==KeyEvent.VK_ENTER)			//to next TextField when the user press
+					emailTxtField.requestFocus();				//'ENTER' Key
+				}
+		});
+		passwordField.setColumns(10);
+		passwordField.setBounds(391, 195, 181, 22);
+		signupFrame.getContentPane().add(passwordField);
+		
+		emailTxtField = new JTextField();
+		emailTxtField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {				//This method is used to move pointer
+				if(e.getKeyCode()==KeyEvent.VK_ENTER)			//to next TextField when the user press
+					mobilenoTxtField.requestFocus();			//'ENTER' Key
+				}
+		});
+		emailTxtField.setColumns(10);
+		emailTxtField.setBounds(391, 243, 181, 22);
+		signupFrame.getContentPane().add(emailTxtField);
+		
+		mobilenoTxtField = new JTextField();
+		mobilenoTxtField.setColumns(10);
+		mobilenoTxtField.setBounds(391, 293, 181, 22);
+		signupFrame.getContentPane().add(mobilenoTxtField);
+		
+		JLabel passwordTipLabel = new JLabel("<html><ul>" + 	//This HTML script used to show Password tips inside Label
+				"<li>Password must contain at least 8 characters</li>" + 
+				"<li>Password must contain an uppercase letter</li>" + 
+				"<li>Password must contain an lowercase letter</li>" + 
+				"</ul></html>");
+		passwordTipLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		passwordTipLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		passwordTipLabel.setBounds(228, 331, 356, 68);
+		signupFrame.getContentPane().add(passwordTipLabel);
 		
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.setBackground(new Color(192, 192, 192));
@@ -120,29 +173,29 @@ public class SignUp {
 			public void actionPerformed(ActionEvent e) {
 				String name,username,email,mobileno;
 				String password;
-				name = textField_1.getText().trim();
-				username = textField_2.getText().trim();
-				password = passwordField_3.getText();
-				email = textField_4.getText().trim();
-				mobileno = textField_5.getText().trim();
-				if(name.isEmpty() || username.isEmpty() || email.isEmpty() || mobileno.isEmpty() || password.isEmpty())
-				{
-					JOptionPane.showMessageDialog(frame1,"Invalid Data  !!");
+				name = nameTxtField.getText().trim();			//Trim is used to remove Spaces from string that we get from TxtFields
+				username = usernameTxtField.getText().trim();
+				password = passwordField.getText();
+				email = emailTxtField.getText().trim();
+				mobileno = mobilenoTxtField.getText().trim();
+				if(name.isEmpty() || username.isEmpty() || email.isEmpty() || mobileno.isEmpty() || password.isEmpty())			//This if condition checks whether the textfields are empty or not
+				{																											
+					JOptionPane.showMessageDialog(signupFrame,"Invalid Data  !!");
 				}
-				else if(mobileno.length()>10)
+				else if(mobileno.length()>10)					//This condition checks whether the mobileno is not more than 10 digits
 				{
-						JOptionPane.showMessageDialog(frame1,"Mobile Number exceeds 10 digits  !!");
+						JOptionPane.showMessageDialog(signupFrame,"Mobile Number exceeds 10 digits  !!");
 				}
 				else
 				{
-					SignUpDataSaving obj = new SignUpDataSaving();
-					obj.setDataSubmit(name,username,password,email,mobileno);
+						SignUpDataSaving obj = new SignUpDataSaving();
+						obj.setDataSubmit(name,username,password,email,mobileno);
 				}
 			}
 		});
 		btnNewButton.setFont(new Font("Segoe UI", Font.PLAIN, 24));
 		btnNewButton.setBounds(289, 422, 110, 30);
-		frame1.getContentPane().add(btnNewButton);
+		signupFrame.getContentPane().add(btnNewButton);
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(new Color(192, 192, 192));
@@ -152,11 +205,11 @@ public class SignUp {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							frame1.setVisible(false);
+							signupFrame.setVisible(false);
 							Open window = new Open();
-							window.frame.setVisible(true);
-							frame1.dispose();
-						} catch (Exception e) {
+							window.openFrame.setVisible(true);
+							signupFrame.dispose();				//This Dispose method release all the memory that is consumed
+						} catch (Exception e) {					//by the frame to the OS
 							e.printStackTrace();
 						}
 					}
@@ -165,34 +218,19 @@ public class SignUp {
 		});
 		btnBack.setFont(new Font("Segoe UI", Font.PLAIN, 24));
 		btnBack.setBounds(452, 422, 110, 30);
-		frame1.getContentPane().add(btnBack);
+		signupFrame.getContentPane().add(btnBack);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(SignUp.class.getResource("/passwordrack/Images/Registered User.png")));
-		lblNewLabel_2.setBounds(27, 191, 160, 160);
-		frame1.getContentPane().add(lblNewLabel_2);
+		JPanel leftpanel = new JPanel();						//used for background color (Dark Grey)
+		leftpanel.setBorder(null);
+		leftpanel.setBackground(new Color(105, 105, 105));
+		leftpanel.setBounds(0, 0, 214, 410);
+		signupFrame.getContentPane().add(leftpanel);
 		
-		JLabel lblNewLabel_3 = new JLabel("Create Your Account");
-		lblNewLabel_3.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblNewLabel_3.setBackground(new Color(245, 245, 245));
-		lblNewLabel_3.setFont(new Font("Segoe UI Semilight", Font.BOLD, 36));
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(228, 32, 352, 70);
-		frame1.getContentPane().add(lblNewLabel_3);
-		
-		JPanel panel = new JPanel();
-		panel.setBorder(null);
-		panel.setBackground(new Color(105, 105, 105));
-		panel.setBounds(0, 0, 214, 410);
-		frame1.getContentPane().add(panel);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(null);
-		panel_1.setBackground(new Color(230, 230, 250));
-		panel_1.setBounds(0, 409, 596, 63);
-		frame1.getContentPane().add(panel_1);
-		
-		frame1.setLocationRelativeTo(null);   //To display JFrame at the center of screen
+		JPanel lowerpanel = new JPanel();						//used for background (Light Grey)
+		lowerpanel.setBorder(null);
+		lowerpanel.setBackground(new Color(230, 230, 250));
+		lowerpanel.setBounds(0, 409, 596, 63);
+		signupFrame.getContentPane().add(lowerpanel);
 	}
 }
 	

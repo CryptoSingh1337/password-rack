@@ -1,8 +1,5 @@
 package passwordrack.GUI;
 
-//import passwordrack.GUI.SignUp;
-//import passwordrack.GUI.Login;
-
 import java.awt.Desktop;
 import java.awt.EventQueue;
 
@@ -22,7 +19,7 @@ import java.awt.Toolkit;
 
 public class Open {
 
-	protected JFrame frame;
+	protected JFrame openFrame;
 
 	/**
 	 * Launch the application.
@@ -32,7 +29,7 @@ public class Open {
 			public void run() {
 				try {
 					Open window = new Open();
-					window.frame.setVisible(true);
+					window.openFrame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,13 +48,13 @@ public class Open {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame("Password Rack");
-		frame.setResizable(false);
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(Open.class.getResource("/passwordrack/Images/Logo.jpg")));
-		frame.setBackground(new Color(153, 180, 209));
-		frame.setSize(600, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		openFrame = new JFrame("Password Rack");
+		openFrame.setResizable(false);
+		openFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(Open.class.getResource("/passwordrack/Images/Logo.jpg")));			//Main Icon
+		openFrame.setBackground(new Color(153, 180, 209));
+		openFrame.setSize(600, 500);
+		openFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		openFrame.getContentPane().setLayout(null);
 		
 		JButton btnSignup = new JButton("SignUp");
 		btnSignup.setBackground(new Color(192, 192, 192));
@@ -70,17 +67,17 @@ public class Open {
 					public void run() {
 						try {
 							SignUp window1 = new SignUp();
-							window1.frame1.setVisible(true);
-							frame.setVisible(false);
-							frame.dispose();
-						} catch (Exception e) {
+							window1.signupFrame.setVisible(true);
+							openFrame.setVisible(false);
+							openFrame.dispose();				//This Dispose method release all the memory that is consumed
+						} catch (Exception e) {					//by the frame to the OS
 							e.printStackTrace();
 						}
 					}
 				});
 			}
 		});
-		frame.getContentPane().add(btnSignup);
+		openFrame.getContentPane().add(btnSignup);
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBackground(new Color(192, 192, 192));
@@ -93,17 +90,17 @@ public class Open {
 					public void run() {
 						try {
 							Login window2 = new Login();
-							window2.frame2.setVisible(true);
-							frame.setVisible(false);
-							frame.dispose();
-						} catch (Exception e) {
+							window2.loginFrame.setVisible(true);
+							openFrame.setVisible(false);
+							openFrame.dispose();				//This Dispose method release all the memory that is consumed
+						} catch (Exception e) {					//by the frame to the OS
 							e.printStackTrace();
 						}
 					}
 				});
 			}
 		});
-		frame.getContentPane().add(btnLogin);
+		openFrame.getContentPane().add(btnLogin);
 		
 		JButton btnReadme = new JButton("Readme");
 		btnReadme.setBackground(new Color(192, 192, 192));
@@ -112,7 +109,7 @@ public class Open {
 		btnReadme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Desktop.getDesktop().open(new java.io.File("File/readme.txt"));
+					Desktop.getDesktop().open(new java.io.File("File/readme.txt"));				//This will open Readme text file
 				}
 				
 				catch(Exception f) {
@@ -121,63 +118,53 @@ public class Open {
 			}
 		});
 		btnReadme.setFont(new Font("Segoe UI", Font.PLAIN, 24));
-		frame.getContentPane().add(btnReadme);
+		openFrame.getContentPane().add(btnReadme);
 		
-		JLabel label = new JLabel("Password");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setForeground(Color.WHITE);
-		label.setFont(new Font("Impact", Font.PLAIN, 70));
+		JLabel passwordLogoLbl = new JLabel("Password");
+		passwordLogoLbl.setForeground(new Color(255, 255, 255));
+		passwordLogoLbl.setFont(new Font("Impact", Font.PLAIN, 70));
+		passwordLogoLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		passwordLogoLbl.setBounds(25, 55, 291, 101);
+		openFrame.getContentPane().add(passwordLogoLbl);
 		
-		JLabel label_1 = new JLabel("Password");
-		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setForeground(Color.WHITE);
-		label_1.setFont(new Font("Impact", Font.PLAIN, 70));
+		JLabel rackLogolbl = new JLabel("Rack");
+		rackLogolbl.setForeground(new Color(255, 255, 255));
+		rackLogolbl.setHorizontalAlignment(SwingConstants.CENTER);
+		rackLogolbl.setFont(new Font("Impact", Font.PLAIN, 70));
+		rackLogolbl.setBounds(25, 117, 291, 101);
+		openFrame.getContentPane().add(rackLogolbl);
 		
-		JLabel lblNewLabel = new JLabel("Password");
-		lblNewLabel.setForeground(new Color(255, 255, 224));
-		lblNewLabel.setFont(new Font("Impact", Font.PLAIN, 70));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(25, 55, 291, 101);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel developLbl = new JLabel("Developed By ");
+		developLbl.setForeground(new Color(192, 192, 192));
+		developLbl.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		developLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		developLbl.setBounds(38, 270, 258, 92);
+		openFrame.getContentPane().add(developLbl);
 		
-		JLabel lblRack = new JLabel("Rack");
-		lblRack.setForeground(new Color(255, 255, 224));
-		lblRack.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRack.setFont(new Font("Impact", Font.PLAIN, 70));
-		lblRack.setBounds(25, 117, 291, 101);
-		frame.getContentPane().add(lblRack);
+		JLabel devnameLbl = new JLabel("Saransh Kumar");
+		devnameLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		devnameLbl.setForeground(Color.LIGHT_GRAY);
+		devnameLbl.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		devnameLbl.setBounds(38, 305, 258, 92);
+		openFrame.getContentPane().add(devnameLbl);
 		
-		JLabel lblNewLabel_1 = new JLabel("Developed By ");
-		lblNewLabel_1.setForeground(new Color(192, 192, 192));
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(38, 270, 258, 92);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel versionLbl = new JLabel("v1.0");
+		versionLbl.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		versionLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		versionLbl.setBounds(549, 10, 37, 23);
+		openFrame.getContentPane().add(versionLbl);
 		
-		JLabel lblSaranshKumar = new JLabel("Saransh Kumar");
-		lblSaranshKumar.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSaranshKumar.setForeground(Color.LIGHT_GRAY);
-		lblSaranshKumar.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		lblSaranshKumar.setBounds(38, 305, 258, 92);
-		frame.getContentPane().add(lblSaranshKumar);
+		JPanel leftPanel = new JPanel();
+		leftPanel.setBackground(new Color(0, 0, 0));
+		leftPanel.setBounds(0, 0, 343, 472);
+		openFrame.getContentPane().add(leftPanel);
 		
-		JLabel lblNewLabel_2 = new JLabel("v1.0");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(549, 10, 37, 23);
-		frame.getContentPane().add(lblNewLabel_2);
+		JPanel rightPanel = new JPanel();
+		rightPanel.setBackground(new Color(255, 255, 224));
+		rightPanel.setBounds(343, 0, 253, 472);
+		openFrame.getContentPane().add(rightPanel);
 		
-		JPanel left = new JPanel();
-		left.setBackground(new Color(0, 0, 0));
-		left.setBounds(0, 0, 343, 472);
-		frame.getContentPane().add(left);
-		
-		JPanel right = new JPanel();
-		right.setBackground(new Color(255, 255, 224));
-		right.setBounds(343, 0, 253, 472);
-		frame.getContentPane().add(right);
-		
-		frame.setLocationRelativeTo(null);   //To display JFrame at the center of the screen
+		openFrame.setLocationRelativeTo(null);   //To display JFrame at the center of the screen
 		
 	}
 }
