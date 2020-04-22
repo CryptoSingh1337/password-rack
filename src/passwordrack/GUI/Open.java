@@ -116,7 +116,7 @@ public class Open {
 		btnReadme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Desktop.getDesktop().browse(new URI("file:///E:/Workspace/PasswordRack/File/Resume-converted.pdf"));				//This will open Readme text file
+					Desktop.getDesktop().browse(new URI("file:///E:/Workspace/PasswordRack/File/blank.pdf"));				//This will open Readme text file
 				}
 				
 				catch(Exception f) {
