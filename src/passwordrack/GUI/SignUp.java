@@ -175,6 +175,7 @@ public class SignUp {
 		btnNewButton.setBackground(new Color(192, 192, 192));
 		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		btnNewButton.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				String name,username,email,mobileno;
 				String password;

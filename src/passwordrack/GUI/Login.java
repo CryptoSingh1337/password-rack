@@ -105,6 +105,7 @@ public class Login {
 		btnSubmit.setBackground(new Color(192, 192, 192));			//This color defines as 'Lower Buttons color'
 		btnSubmit.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		btnSubmit.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				String pass,username1;
 				int i;

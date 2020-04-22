@@ -4,7 +4,6 @@ import javax.swing.JFrame;
 
 import passwordrack.Home.Action;
 
-import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JLabel;
