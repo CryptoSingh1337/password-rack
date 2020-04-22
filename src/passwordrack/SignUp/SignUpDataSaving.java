@@ -3,6 +3,7 @@ package passwordrack.SignUp;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
@@ -21,7 +22,8 @@ public class SignUpDataSaving {
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection connect = DriverManager.getConnection(url,username,password);
-			PreparedStatement p = connect.prepareStatement("insert into PasswordRack values(?,?,?,?,?)");
+			String sql = "insert into PasswordRackAccounts values(?,?,?,?,?)";
+			PreparedStatement p = connect.prepareStatement(sql);
 			p.setString(1, Name);
 			p.setString(2, Username);
 			p.setString(3, Password);
@@ -31,9 +33,12 @@ public class SignUpDataSaving {
 			
 			JOptionPane.showMessageDialog(null, "Saved Data Successfully!!");
 			}
-		catch(Exception e) {
+		catch(SQLException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Username Already Exists !!");
+		}
+		catch(Exception e){
+			JOptionPane.showMessageDialog(null, e);
 		}
 	}
 }

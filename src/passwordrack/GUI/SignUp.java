@@ -46,7 +46,7 @@ public class SignUp {
 	 */
 	private void initialize1() {
 		signupFrame = new JFrame("Password Rack");
-		signupFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(SignUp.class.getResource("/passwordrack/Images/Logo.jpg")));	//Main Icon
+		signupFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(SignUp.class.getResource("/passwordrack/Images/LogoIcon.png")));	//Main Icon
 		signupFrame.getContentPane().setBackground(new Color(255, 255, 255));
 		signupFrame.setSize(600,500);
 		signupFrame.setResizable(false);
@@ -60,8 +60,8 @@ public class SignUp {
 		signupLabel.setBounds(27, 45, 160, 76);
 		signupFrame.getContentPane().add(signupLabel);
 		
-		JLabel signupIcon = new JLabel("");						//SignUp Icon
-		signupIcon.setIcon(new ImageIcon(SignUp.class.getResource("/passwordrack/Images/Registered User.png")));
+		JLabel signupIcon = new JLabel("");						
+		signupIcon.setIcon(new ImageIcon(SignUp.class.getResource("/passwordrack/Images/SignUpIcon.png")));			//SignUp Icon
 		signupIcon.setBounds(27, 191, 160, 160);
 		signupFrame.getContentPane().add(signupIcon);
 		
@@ -113,6 +113,7 @@ public class SignUp {
 		});
 		nameTxtField.setColumns(10);
 		nameTxtField.setBounds(391, 100, 181, 22);
+		nameTxtField.setToolTipText("Enter your name");			//Shows a tip when user point on that label
 		signupFrame.getContentPane().add(nameTxtField);
 		
 		usernameTxtField = new JTextField();
@@ -125,6 +126,7 @@ public class SignUp {
 		});
 		usernameTxtField.setColumns(10);
 		usernameTxtField.setBounds(391, 145, 181, 22);
+		usernameTxtField.setToolTipText("<html>Enter your Username<br>and it must be unique</html>");			//Shows a tip when user point on that label
 		signupFrame.getContentPane().add(usernameTxtField);
 		
 		passwordField = new JPasswordField();
@@ -137,6 +139,7 @@ public class SignUp {
 		});
 		passwordField.setColumns(10);
 		passwordField.setBounds(391, 195, 181, 22);
+		passwordField.setToolTipText("Enter your password");			//Shows a tip when user point on that label
 		signupFrame.getContentPane().add(passwordField);
 		
 		emailTxtField = new JTextField();
@@ -149,11 +152,13 @@ public class SignUp {
 		});
 		emailTxtField.setColumns(10);
 		emailTxtField.setBounds(391, 243, 181, 22);
+		emailTxtField.setToolTipText("Enter your E-mail ID");			//Shows a tip when user point on that label
 		signupFrame.getContentPane().add(emailTxtField);
 		
 		mobilenoTxtField = new JTextField();
 		mobilenoTxtField.setColumns(10);
 		mobilenoTxtField.setBounds(391, 293, 181, 22);
+		mobilenoTxtField.setToolTipText("Enter your mobile number");			//Shows a tip when user point on that label
 		signupFrame.getContentPane().add(mobilenoTxtField);
 		
 		JLabel passwordTipLabel = new JLabel("<html><ul>" + 	//This HTML script used to show Password tips inside Label

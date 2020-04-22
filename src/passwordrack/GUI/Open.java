@@ -11,15 +11,18 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.net.URI;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.border.LineBorder;
 import java.awt.Toolkit;
 
 public class Open {
 
-	protected JFrame openFrame;
+	public JFrame openFrame;
 
 	/**
 	 * Launch the application.
@@ -50,17 +53,19 @@ public class Open {
 	private void initialize() {
 		openFrame = new JFrame("Password Rack");
 		openFrame.setResizable(false);
-		openFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(Open.class.getResource("/passwordrack/Images/Logo.jpg")));			//Main Icon
+		openFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(Open.class.getResource("/passwordrack/Images/LogoIcon.png")));			//Main Icon
 		openFrame.setBackground(new Color(153, 180, 209));
 		openFrame.setSize(600, 500);
-		openFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		openFrame.getContentPane().setLayout(null);
+		openFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		openFrame.setLocationRelativeTo(null);					//To display JFrame at the center of the screen
 		
 		JButton btnSignup = new JButton("SignUp");
 		btnSignup.setBackground(new Color(192, 192, 192));
 		btnSignup.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
 		btnSignup.setBounds(390, 80, 160, 65);
 		btnSignup.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+		btnSignup.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));			//Set Cursor to Hand Cursor
 		btnSignup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -84,6 +89,7 @@ public class Open {
 		btnLogin.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
 		btnLogin.setBounds(390, 206, 160, 65);
 		btnLogin.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));			//Set Cursor to Hand Cursor
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -106,10 +112,11 @@ public class Open {
 		btnReadme.setBackground(new Color(192, 192, 192));
 		btnReadme.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
 		btnReadme.setBounds(390, 327, 160, 65);
+		btnReadme.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));			//Set Cursor to Hand Cursor
 		btnReadme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Desktop.getDesktop().open(new java.io.File("File/readme.txt"));				//This will open Readme text file
+					Desktop.getDesktop().browse(new URI("file:///E:/Workspace/PasswordRack/File/Resume-converted.pdf"));				//This will open Readme text file
 				}
 				
 				catch(Exception f) {
@@ -163,8 +170,5 @@ public class Open {
 		rightPanel.setBackground(new Color(255, 255, 224));
 		rightPanel.setBounds(343, 0, 253, 472);
 		openFrame.getContentPane().add(rightPanel);
-		
-		openFrame.setLocationRelativeTo(null);   //To display JFrame at the center of the screen
-		
 	}
 }

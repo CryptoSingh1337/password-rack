@@ -1,8 +1,10 @@
 package passwordrack.GUI;
 
+import passwordrack.GUI.HOME.Home;
 import passwordrack.Login.LoginValidation;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -17,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -28,6 +29,7 @@ public class Login {
 	protected JFrame loginFrame;										// make protected to access this JFrame object in other class
 	private JTextField usernameTxtField;								//and to make it visible
 	private JPasswordField passwordField;
+	public static String Username;
 
 	 /**
 	 * Create the application.
@@ -40,12 +42,13 @@ public class Login {
 	 */
 	private void initialize() {
 		loginFrame = new JFrame();
-		loginFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/passwordrack/Images/Logo.jpg")));	//Main Icon
+		loginFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/passwordrack/Images/LogoIcon.png")));	//Main Icon
 		loginFrame.setTitle("Password Rack");
 		loginFrame.setBounds(0, -28, 600, 500);
 		loginFrame.getContentPane().setBackground(new Color(255, 255, 255));
 		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		loginFrame.setResizable(false);
+		loginFrame.setLocationRelativeTo(null);    						//To display JFrame at the center of the screen
 		loginFrame.getContentPane().setLayout(null);
 		
 		JLabel loginLabel = new JLabel("Login");
@@ -56,7 +59,7 @@ public class Login {
 		
 		JLabel loginIcon = new JLabel("");
 		loginIcon.setBounds(27, 191, 160, 160);
-		loginIcon.setIcon(new ImageIcon(Login.class.getResource("/passwordrack/Images/Login.png")));			//Login Icon
+		loginIcon.setIcon(new ImageIcon(Login.class.getResource("/passwordrack/Images/LoginIcon.png")));			//Login Icon
 		loginFrame.getContentPane().add(loginIcon);
 		
 		JLabel loginAccLabel = new JLabel("Login Your Account");
@@ -89,17 +92,19 @@ public class Login {
 		});
 		usernameTxtField.setBounds(387, 253, 181, 22);
 		usernameTxtField.setColumns(10);
+		usernameTxtField.setToolTipText("Enter your username");			//Shows a tip when user point on that label 
 		loginFrame.getContentPane().add(usernameTxtField);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(387, 321, 181, 22);
 		passwordField.setColumns(10);
+		passwordField.setToolTipText("Enter your username");			//Shows a tip when user point on that label 
 		loginFrame.getContentPane().add(passwordField);
 		
-		JButton btnNewButton= new JButton("Submit");
-		btnNewButton.setBackground(new Color(192, 192, 192));			//This color defines as 'Lower Buttons color'
-		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnSubmit= new JButton("Submit");
+		btnSubmit.setBackground(new Color(192, 192, 192));			//This color defines as 'Lower Buttons color'
+		btnSubmit.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String pass,username1;
 				int i;
@@ -115,8 +120,10 @@ public class Login {
 					i = obj.checkValidation(username1,pass);			//This method checkValidation return an integer
 					if(i == 1)
 						{
+							Username = usernameTxtField.getText().trim();
+							
 							JOptionPane.showMessageDialog(loginFrame, "Login Successful  !!");
-						
+							
 							loginFrame.setVisible(false);
 							Home window = new Home();
 							window.homeFrame.setVisible(true);
@@ -128,9 +135,10 @@ public class Login {
 				
 			}
 		});
-		btnNewButton.setFont(new Font("Segoe UI", Font.PLAIN, 24));
-		btnNewButton.setBounds(289, 422, 110, 30);
-		loginFrame.getContentPane().add(btnNewButton);
+		btnSubmit.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+		btnSubmit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));			//Set Cursor to Hand Cursor
+		btnSubmit.setBounds(289, 422, 110, 30);
+		loginFrame.getContentPane().add(btnSubmit);
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(new Color(192, 192, 192));				//This color defines as 'Lower Buttons color'
@@ -171,7 +179,5 @@ public class Login {
 		topPanel.setBackground(new Color(0, 0, 0));
 		topPanel.setBounds(213, 0, 383, 70);
 		loginFrame.getContentPane().add(topPanel);
-		
-		loginFrame.setLocationRelativeTo(null);    						//To display JFrame at the center of the screen
 	}
 }

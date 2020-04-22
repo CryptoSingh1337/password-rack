@@ -2,6 +2,8 @@ package passwordrack.Login;
 
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 public class LoginValidation {
 	
 	private String url;
@@ -16,7 +18,7 @@ public class LoginValidation {
 			username = "system";
 			password = "manager";
 			
-			String sql = "select Username,Password from PasswordRack where Username = '"+Username1+"' AND Password = '"+Password1+"'";
+			String sql = "select Username,Password from PasswordRackAccounts where Username = '"+Username1+"' AND Password = '"+Password1+"'";
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection connect = DriverManager.getConnection(url, username, password);
@@ -29,8 +31,8 @@ public class LoginValidation {
 		
 		catch(Exception e){
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e);
 		}
-		
 		return i;
 	}
 	
