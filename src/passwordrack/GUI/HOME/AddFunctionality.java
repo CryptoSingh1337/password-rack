@@ -46,7 +46,7 @@ public class AddFunctionality {
 		addFunctionalityFrame.setResizable(false);
 		addFunctionalityFrame.setSize(350, 200);
 		addFunctionalityFrame.setLocationRelativeTo(null);    						//To display JFrame at the center of the screen
-		addFunctionalityFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addFunctionalityFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		addFunctionalityFrame.getContentPane().setLayout(null);
 		
 		JLabel passwordLabel = new JLabel("Password");
