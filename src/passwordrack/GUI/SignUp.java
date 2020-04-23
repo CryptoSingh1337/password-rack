@@ -21,6 +21,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 
@@ -171,10 +173,10 @@ public class SignUp {
 		passwordTipLabel.setBounds(228, 331, 356, 68);
 		signupFrame.getContentPane().add(passwordTipLabel);
 		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setBackground(new Color(192, 192, 192));
-		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setBackground(new Color(192, 192, 192));
+		btnSubmit.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btnSubmit.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				String name,username,email,mobileno;
@@ -186,11 +188,11 @@ public class SignUp {
 				mobileno = mobilenoTxtField.getText().trim();
 				if(name.isEmpty() || username.isEmpty() || email.isEmpty() || mobileno.isEmpty() || password.isEmpty())			//This if condition checks whether the textfields are empty or not
 				{																											
-					JOptionPane.showMessageDialog(signupFrame,"Invalid Data  !!");
+					JOptionPane.showMessageDialog(signupFrame,"Invalid Data  !!", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
 				else if(mobileno.length()>10)					//This condition checks whether the mobileno is not more than 10 digits
 				{
-						JOptionPane.showMessageDialog(signupFrame,"Mobile Number exceeds 10 digits  !!");
+						JOptionPane.showMessageDialog(signupFrame,"Mobile Number exceeds 10 digits  !!", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
 				else
 				{
@@ -199,9 +201,10 @@ public class SignUp {
 				}
 			}
 		});
-		btnNewButton.setFont(new Font("Segoe UI", Font.PLAIN, 24));
-		btnNewButton.setBounds(289, 422, 110, 30);
-		signupFrame.getContentPane().add(btnNewButton);
+		btnSubmit.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+		btnSubmit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnSubmit.setBounds(289, 422, 110, 30);
+		signupFrame.getContentPane().add(btnSubmit);
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBackground(new Color(192, 192, 192));
@@ -223,6 +226,7 @@ public class SignUp {
 			}
 		});
 		btnBack.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+		btnBack.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBack.setBounds(452, 422, 110, 30);
 		signupFrame.getContentPane().add(btnBack);
 		

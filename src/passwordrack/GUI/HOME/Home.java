@@ -7,6 +7,8 @@ import java.awt.Cursor;
 import java.awt.Toolkit;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
@@ -58,22 +60,26 @@ public class Home {
 		topPanel.add(lblNewLabel);
 		
 		JLabel logoutIcon = new JLabel("");
+		logoutIcon.setToolTipText("Logout");
 		logoutIcon.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						try {
-							Open window = new Open();
-							window.openFrame.setVisible(true);
-							homeFrame.setVisible(false);
-							homeFrame.dispose();
-						} catch (Exception e) {
+					EventQueue.invokeLater(new Runnable() {
+						public void run() {
+							try 
+							{
+								Open window = new Open();
+								window.openFrame.setVisible(true);
+								homeFrame.setVisible(false);
+								homeFrame.dispose();
+							} 
+							catch (Exception e) 
+							{
 							e.printStackTrace();
+							}
 						}
-					}
-				});
-			}
+					});
+				}
 		});
 		logoutIcon.setVerticalAlignment(SwingConstants.TOP);
 		logoutIcon.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -85,8 +91,8 @@ public class Home {
 		JButton addButton = new JButton("ADD");
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Add window = new Add();
-				window.addFrame.setVisible(true);
+				AddFunctionality window = new AddFunctionality();
+				window.addFunctionalityFrame.setVisible(true);
 			}
 		});
 		addButton.setFont(new Font("Segoe UI", Font.PLAIN, 20));
@@ -141,7 +147,12 @@ public class Home {
 		JButton exitButton = new JButton("EXIT");
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				int selectedoption = JOptionPane.showConfirmDialog(homeFrame, 
+						"Do you want to Exit?", "Confirmation", JOptionPane.YES_NO_OPTION);
+				if(selectedoption==JOptionPane.YES_OPTION)
+				{
+					System.exit(0);
+				}
 			}
 		});
 		exitButton.setFont(new Font("Segoe UI", Font.PLAIN, 20));

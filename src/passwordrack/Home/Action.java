@@ -4,6 +4,7 @@ import passwordrack.GUI.Login;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
@@ -21,7 +22,7 @@ public class Action {
 		pass = "manager";
 	}
 	
-	public void addAction(String password_tag, String password) 
+	public void addAction1(String password_tag, String password) 
 	{
 		try 
 		{
@@ -36,9 +37,13 @@ public class Action {
 			ps.execute();
 			JOptionPane.showMessageDialog(null,"Data Saved Successfully !!");
 		} 
+		catch(SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+		}
 		catch (Exception e) {
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Data Not Saved !!");
+			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

@@ -31,7 +31,7 @@ public class LoginValidation {
 		
 		catch(Exception e){
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, e);
+			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 		return i;
 	}

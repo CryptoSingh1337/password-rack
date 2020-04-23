@@ -114,7 +114,7 @@ public class Login {
 				LoginValidation obj = new LoginValidation();
 				if(username1.isEmpty() || pass.isEmpty())				//This if condition checks whether the textfields are empty or not
 				{
-					JOptionPane.showMessageDialog(loginFrame,"Invalid Data  !!");
+					JOptionPane.showMessageDialog(loginFrame,"Invalid Data  !!", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
 				else
 				{
@@ -131,7 +131,7 @@ public class Login {
 							loginFrame.dispose();
 						}
 					else
-						JOptionPane.showMessageDialog(loginFrame, "Login Unsuccessful  !!");
+						JOptionPane.showMessageDialog(loginFrame, "Login Unsuccessful  !!", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
 				
 			}
@@ -161,6 +161,7 @@ public class Login {
 			}
 		});
 		btnBack.setFont(new Font("Segoe UI", Font.PLAIN, 24));
+		btnBack.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBack.setBounds(452, 422, 110, 30);
 		loginFrame.getContentPane().add(btnBack);
 		

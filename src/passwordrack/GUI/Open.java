@@ -120,7 +120,7 @@ public class Open {
 				}
 				
 				catch(Exception f) {
-					JOptionPane.showMessageDialog(null, "Error in Opening File  !!");
+					JOptionPane.showMessageDialog(null, "Error in Opening File  !!","ERROR", JOptionPane.ERROR_MESSAGE);
 				}	
 			}
 		});

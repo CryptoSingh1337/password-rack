@@ -35,10 +35,10 @@ public class SignUpDataSaving {
 			}
 		catch(SQLException e) {
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Username Already Exists !!");
+			JOptionPane.showMessageDialog(null, "Username Already Exists !!", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 		catch(Exception e){
-			JOptionPane.showMessageDialog(null, e);
+			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }
