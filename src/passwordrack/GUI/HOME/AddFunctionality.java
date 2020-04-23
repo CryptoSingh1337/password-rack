@@ -2,7 +2,7 @@ package passwordrack.GUI.HOME;
 
 import javax.swing.JFrame;
 
-import passwordrack.Home.Action;
+import passwordrack.Home.*;
 
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -28,18 +28,6 @@ public class AddFunctionality {
 	private JPasswordField passwordField;
 	private JTextField showPasswordLabel;
 	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddFunctionality window = new AddFunctionality();
-					window.addFunctionalityFrame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 	/**
 	 * Create the application.
 	 */
@@ -126,16 +114,23 @@ public class AddFunctionality {
 				}
 				else
 				{
-					Action obj = new Action();
-					obj.addAction1(password_tag, password);
-					int selectedoption = JOptionPane.showConfirmDialog(addFunctionalityFrame, 
-							"Do you want to add more Password?", "Confirmation", JOptionPane.YES_NO_OPTION);
-					if(selectedoption==JOptionPane.NO_OPTION)
+					DataChecking obj1 = new DataChecking();
+					int i = obj1.getAddPasswordResult(password_tag, password);
+					if(i==1)
+						JOptionPane.showMessageDialog(null, "Same Data already exists !!", "ERROR", JOptionPane.ERROR_MESSAGE);
+					else
 					{
-						addFunctionalityFrame.setVisible(false);
-						addFunctionalityFrame.dispose();
-						Home window = new Home();
-						window.homeFrame.setVisible(true);
+						Action obj2 = new Action();
+						obj2.addAction1(password_tag, password);
+						int selectedoption = JOptionPane.showConfirmDialog(addFunctionalityFrame, 
+								"Do you want to add more Password?", "Confirmation", JOptionPane.YES_NO_OPTION);
+						if(selectedoption==JOptionPane.NO_OPTION)
+						{
+							addFunctionalityFrame.setVisible(false);
+							addFunctionalityFrame.dispose();
+							Home window = new Home();
+							window.homeFrame.setVisible(true);
+						}
 					}
 				}
 			}

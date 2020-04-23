@@ -14,6 +14,7 @@ public class Action {
 	private static String user;
 	private static String pass;
 	private static String username;
+	private String sql;
 	
 	public Action()
 	{
@@ -29,7 +30,7 @@ public class Action {
 			username = Login.Username;
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection connect = DriverManager.getConnection(url,user,pass);
-			String sql = "insert into PasswordRackUserData values(?,?,?)";
+			sql = "insert into PasswordRackUserData values(?,?,?)";
 			PreparedStatement ps = connect.prepareStatement(sql);
 			ps.setString(1, username);
 			ps.setString(2, password_tag);
