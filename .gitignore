@@ -20,3 +20,4 @@
 *.zip
 *.tar.gz
 *.rar
+.gitignore

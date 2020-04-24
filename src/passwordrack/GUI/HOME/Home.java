@@ -1,3 +1,11 @@
+/**
+ * This class is created to create GUI of HomePage
+ * where user can choose option like ADD password
+ * into DB, Retrieve Password from DB, Export
+ * Passwords to a text file and Delete Password
+ * from DB
+ */
+
 package passwordrack.GUI.HOME;
 
 import java.awt.EventQueue;
@@ -105,8 +113,8 @@ public class Home {
 		JButton retrieveButton = new JButton("RETRIEVE");
 		retrieveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			//	Retrieve window = new Retrieve();
-			//	window.retrieveFrame.setVisible(true);
+				RetrieveFunctionality window = new RetrieveFunctionality();
+				window.retrieveFunctionalityFrame.setVisible(true);
 			}
 		});
 		retrieveButton.setFont(new Font("Segoe UI", Font.PLAIN, 20));

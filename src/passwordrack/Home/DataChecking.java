@@ -1,3 +1,10 @@
+/**
+ * This class is created to check whether the Data that 
+ * user entered in Password_tag and Password textfield 
+ * through 'addFrame' in Home Page i.e. homeFrame
+ */
+
+
 package passwordrack.Home;
 
 import java.sql.Connection;

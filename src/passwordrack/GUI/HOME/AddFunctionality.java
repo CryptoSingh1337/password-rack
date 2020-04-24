@@ -1,3 +1,10 @@
+/**
+ * This class is created to create a GUI to get user data i.e. 
+ * Password_tag and password to store in Database when a user 
+ * press ADD button from HomePage i.e. from homeFrame and only 
+ * trigger if user press ADD button
+ */
+
 package passwordrack.GUI.HOME;
 
 import javax.swing.JFrame;
