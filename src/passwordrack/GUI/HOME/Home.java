@@ -24,9 +24,12 @@ import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
 import passwordrack.GUI.Open;
+import passwordrack.Home.Action;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -127,8 +130,28 @@ public class Home {
 		JButton exportButton = new JButton("EXPORT");
 		exportButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			//	Export window = new Export();
-			//	window.exportFrame.setVisible(true);
+				try
+				{
+					String filename = JOptionPane.showInputDialog(homeFrame, "Enter the name of the File");
+					FileWriter fw = new FileWriter("File/"+filename+".txt");
+					Action obj = new Action();
+					int noofrows = Action.rows;
+					String result[][] = obj.retrieveActionAllRecord();
+					for(int i = 0; i < noofrows; i++)
+					{
+							for(int j = 0; j < 2; j++)
+								{
+									fw.write(result[i][j]+"                  ");
+								}
+							fw.write("\n");
+					}
+					fw.close();
+					JOptionPane.showMessageDialog(homeFrame,"Successfully Saved Your Passwords \n At : File/"+filename+".txt","Message",JOptionPane.PLAIN_MESSAGE);
+				} 
+				catch (IOException e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(homeFrame, "Error in Exporting Passwords !!", "ERROR", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		exportButton.setFont(new Font("Segoe UI", Font.PLAIN, 20));
@@ -141,8 +164,8 @@ public class Home {
 		JButton deleteButton = new JButton("DELETE");
 		deleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			//	Delete window = new Delete();
-			//	window.deleteFrame.setVisible(true);
+				DeleteFunctionality obj = new DeleteFunctionality();
+				obj.deleteFunctionailtyFrame.setVisible(true);
 			}
 		});
 		deleteButton.setFont(new Font("Segoe UI", Font.PLAIN, 20));

@@ -113,6 +113,7 @@ public class Action {
 						i++;
 					}
 			}
+			connect.close();
 		} 
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -123,5 +124,58 @@ public class Action {
 			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 		return result;
+	}
+	
+	public void deleteOnePasswords(String password_tag)
+	{
+		try{
+			username = Login.Username;
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection connect = DriverManager.getConnection(url,user,pass);
+			sql = "delete from PasswordRackUserData where Username = '"+username+"' AND Password_Tag = '"+password_tag.toUpperCase()+"'";
+			PreparedStatement ps = connect.prepareStatement(sql);
+			ps.execute(sql);
+			
+			JOptionPane.showMessageDialog(null, "Successfully deleted your Password !!", "Message", JOptionPane.PLAIN_MESSAGE);
+			connect.close();
+		}
+		
+		catch(SQLException e)
+		{
+			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+		}
+		
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+		}
+		
+	}
+	
+	public void deleteAllPasswords()
+	{
+		try{
+			username = Login.Username;
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection connect = DriverManager.getConnection(url,user,pass);
+			sql = "delete from PasswordRackUserData where Username = '"+username+"'";
+			PreparedStatement ps = connect.prepareStatement(sql);
+			ps.execute(sql);
+			
+			JOptionPane.showMessageDialog(null, "Successfully deleted all Passwords !!", "Message", JOptionPane.PLAIN_MESSAGE);
+			connect.close();
+			}
+		catch(SQLException e)
+		{
+			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+		}
+		
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+		}
+		
 	}
 }

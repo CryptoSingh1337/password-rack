@@ -20,13 +20,13 @@ public class RetrieveFunctionality {
 	 * Create the application.
 	 */
 	public RetrieveFunctionality() {
-		retrievePasswordoneRecordOnly();
+		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void retrievePasswordoneRecordOnly() {
+	private void initialize() {
 		retrieveFunctionalityFrame = new JFrame();
 		retrieveFunctionalityFrame.setResizable(false);
 		retrieveFunctionalityFrame.setTitle("Retrieve Password");
@@ -37,8 +37,8 @@ public class RetrieveFunctionality {
 		retrieveFunctionalityFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		retrieveFunctionalityFrame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("Retrieve a password");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnRetrieveAPassword = new JButton("Retrieve a Password");
+		btnRetrieveAPassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String password_tag = JOptionPane.showInputDialog(retrieveFunctionalityFrame, "Enter Password Tag", "Input", JOptionPane.PLAIN_MESSAGE);
 				password_tag.trim();
@@ -52,13 +52,13 @@ public class RetrieveFunctionality {
 						JOptionPane.showMessageDialog(retrieveFunctionalityFrame, "Password Tag :   "+password_tag.toUpperCase()+"\n        Password :   "+"\t"+result, "Result", JOptionPane.PLAIN_MESSAGE);
 			}
 		});
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-		btnNewButton.setBackground(new Color(192, 192, 192));
-		btnNewButton.setBounds(50, 10, 190, 30);
-		retrieveFunctionalityFrame.getContentPane().add(btnNewButton);
+		btnRetrieveAPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnRetrieveAPassword.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		btnRetrieveAPassword.setBackground(new Color(192, 192, 192));
+		btnRetrieveAPassword.setBounds(50, 10, 190, 30);
+		retrieveFunctionalityFrame.getContentPane().add(btnRetrieveAPassword);
 		
-		JButton btnRetrieveAllPassword = new JButton("Retrieve all password");
+		JButton btnRetrieveAllPassword = new JButton("Retrieve all Passwords");
 		btnRetrieveAllPassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RetrieveFunctionalityAllPasswords obj = new RetrieveFunctionalityAllPasswords();
