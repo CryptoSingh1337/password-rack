@@ -8,9 +8,7 @@
 package passwordrack.GUI.HOME;
 
 import javax.swing.JFrame;
-
 import passwordrack.Home.*;
-
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -121,8 +119,7 @@ public class AddFunctionality {
 				}
 				else
 				{
-					DataChecking obj1 = new DataChecking();
-					int i = obj1.getAddPasswordResult(password_tag, password);
+					int i = new DataChecking().getAddPasswordResult(password_tag, password);
 					if(i==1)
 						JOptionPane.showMessageDialog(null, "Same Data already exists !!", "ERROR", JOptionPane.ERROR_MESSAGE);
 					else
@@ -135,8 +132,6 @@ public class AddFunctionality {
 						{
 							addFunctionalityFrame.setVisible(false);
 							addFunctionalityFrame.dispose();
-							Home window = new Home();
-							window.homeFrame.setVisible(true);
 						}
 					}
 				}

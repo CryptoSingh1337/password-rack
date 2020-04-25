@@ -3,6 +3,7 @@ package passwordrack.GUI.HOME;
 import passwordrack.Home.Action;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -19,13 +20,13 @@ public class RetrieveFunctionality {
 	 * Create the application.
 	 */
 	public RetrieveFunctionality() {
-		initialize();
+		retrievePasswordoneRecordOnly();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void retrievePasswordoneRecordOnly() {
 		retrieveFunctionalityFrame = new JFrame();
 		retrieveFunctionalityFrame.setResizable(false);
 		retrieveFunctionalityFrame.setTitle("Retrieve Password");
@@ -58,6 +59,12 @@ public class RetrieveFunctionality {
 		retrieveFunctionalityFrame.getContentPane().add(btnNewButton);
 		
 		JButton btnRetrieveAllPassword = new JButton("Retrieve all password");
+		btnRetrieveAllPassword.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RetrieveFunctionalityAllPasswords obj = new RetrieveFunctionalityAllPasswords();
+				obj.retrieveActionAllPasswordFrame.setVisible(true);
+			}
+		});
 		btnRetrieveAllPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRetrieveAllPassword.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		btnRetrieveAllPassword.setBackground(new Color(192, 192, 192));

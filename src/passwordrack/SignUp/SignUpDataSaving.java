@@ -32,6 +32,8 @@ public class SignUpDataSaving {
 			p.execute();
 			
 			JOptionPane.showMessageDialog(null, "Saved Data Successfully!!");
+			
+			connect.close();
 			}
 		catch(SQLException e) {
 			e.printStackTrace();

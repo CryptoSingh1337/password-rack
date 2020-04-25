@@ -27,6 +27,8 @@ public class LoginValidation {
 			
 			if(rs.next())
 				i=1;
+			
+			connect.close();
 		}
 		
 		catch(Exception e){

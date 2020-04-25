@@ -7,6 +7,7 @@
 
 package passwordrack.Home;
 
+import passwordrack.GUI.Login;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -28,12 +29,13 @@ public class DataChecking {
 		password = "manager";
 	}
 	
-	public int getAddPasswordResult(String Username1, String Password1)
+	public int getAddPasswordResult(String password_tag, String Password1)
 	{
 		int i = 0;
 		try {
 			
-			String sql = "select Password_Tag,Password from PasswordRackUserData where Password_Tag = '"+Username1+"' AND Password = '"+Password1+"'";
+			String user = Login.Username;
+			String sql = "select Password_Tag, Password from PasswordRackUserData where Password_Tag = '"+password_tag.toUpperCase()+"'AND Password = '"+Password1+"' AND Username = '"+user+"'";
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection connect = DriverManager.getConnection(url, username, password);
@@ -42,11 +44,12 @@ public class DataChecking {
 			
 			if(rs.next())
 				i=1;
+			connect.close();
 			}
 		
 		catch(SQLException e)
 		{
-			i = 0; 
+			JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 		catch(Exception e){
 			e.printStackTrace();
