@@ -11,7 +11,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.net.URI;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -116,7 +116,8 @@ public class Open {
 		btnReadme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Desktop.getDesktop().browse(new URI("file:///E:/Workspace/PasswordRack/File/blank.pdf"));				//This will open Readme text file
+					File myFile = new File("File/readme.pdf");
+					Desktop.getDesktop().open(myFile);				//This will open Readme text file
 				}
 				
 				catch(Exception f) {
