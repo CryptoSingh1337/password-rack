@@ -61,9 +61,10 @@ New -> Add path of the jar file where it located).
 
 ScreenShots
 ==========
+<div align=”center”>
 <img src="https://github.com/CryptoSingh1337/password-rack/blob/master/Screenshots/Open.jpg" width="488" height="410" align="middle">
 <img src="https://github.com/CryptoSingh1337/password-rack/blob/master/Screenshots/SignUp.jpg" width="488" height="410" align="middle">
 <img src="https://github.com/CryptoSingh1337/password-rack/blob/master/Screenshots/Login.jpg" width="488" height="410" align="middle">
 <img src="https://github.com/CryptoSingh1337/password-rack/blob/master/Screenshots/Home.jpg" width="488" height="410" align="middle">
-
+</div>
 
