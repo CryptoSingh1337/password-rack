@@ -7,13 +7,6 @@ Link - https://github.com/CryptoSingh1337/password-rack-allversion
 
 Before Launching this application, First read the following Instructions.
 
-ScreenShots
-==========
-![Alt text](Screenshots/Open.jpg)
-![Alt text](Screenshots/Login.jpg)
-![Alt text](Screenshots/SignUp.jpg)
-![Alt text](Screenshots/Home.jpg)
-
 Description
 ==========
 Password Rack is designed in Java Swing and coded in Java using JDK-11.0.7.
@@ -65,3 +58,14 @@ New -> Add path of the jar file where it located).
 -----This query will create a table named PasswordRackUserData which saves all the passwords with the Password tag and username associated with that password.
 
 7. That all , Now you can successfully stores your password into Database. 
+
+ScreenShots
+==========
+![Alt text](Screenshots/Open.jpg)
+=================================
+![Alt text](Screenshots/Login.jpg)
+=================================
+![Alt text](Screenshots/SignUp.jpg)
+=================================
+![Alt text](Screenshots/Home.jpg)
+
