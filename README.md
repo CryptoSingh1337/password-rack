@@ -61,7 +61,7 @@ New -> Add path of the jar file where it located).
 
 ScreenShots
 ==========
-![Alt text](Screenshots/Open.jpg)
+<img src="https://github.com/CryptoSingh1337/password-rack/blob/master/Screenshots/Open.jpg" width="366" height="308">
 =================================
 ![Alt text](Screenshots/Login.jpg)
 =================================
