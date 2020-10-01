@@ -16,6 +16,9 @@ a single password to manage those stored passwords. It stores all of your passwo
 Database i.e. in Oracle 10g which you have to install on your system. This application can store
 multiple passwords one by one into Database. The main key is the USERNAME which must be unique
 for all user. On the basis of username it ADD, RETRIEVE, EXPORT, DELETE your passwords.
+This is just an initial commit to this project. 
+Any changes/recommendations to this project are welcome.
+I hope you get the basic idea of making a password rack.
 
 Password-Rack Features
 =====================
